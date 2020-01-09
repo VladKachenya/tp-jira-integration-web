@@ -3,31 +3,42 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.tsx',
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js']
-    },
+
+    // webpack will take the files from ./src/index
+    entry: './src/index',
+
+    // and output it into /dist as bundle.js
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'bundle.min.js'
+        filename: 'bundle.js'
     },
+
+    // adding .ts and .tsx to resolve.extensions will help babel look for .ts and .tsx files to transpile
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js'],
+    },
+
     module: {
         rules: [
+
+            // we use babel-loader to load our jsx and tsx files
             {
-                test: /\.ts(x?)$/,
+                test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "ts-loader"
-                    }
-                ]
+                use: {
+                    loader: 'babel-loader'
+                },
             },
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+
+            // css-loader to bundle all the css files into one file and style-loader to add all the styles  inside the style tag of the document
             {
-                enforce: "pre",
-                test: /\.js$/,
-                loader: "source-map-loader"
-            }
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.less$/,
+                loader: 'less-loader', // compiles Less to CSS
+            },
         ]
     },
     plugins: [
@@ -35,4 +46,4 @@ module.exports = {
             template: './public/index.html'
         })
     ]
-}
+};
