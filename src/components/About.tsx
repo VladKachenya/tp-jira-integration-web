@@ -1,10 +1,12 @@
 import * as React from 'react';
 
+import "./About.less";
+
 class About extends React.Component {
     render() {
         return (
             <div className='About'>
-                <h1>About</h1>
+                <h2>About</h2>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing 
                     and typesetting industry. Lorem Ipsum has been 

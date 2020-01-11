@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
-    // webpack will take the files from ./src/index
-    entry: './src/index',
+    // webpack will take the files from ./src/App
+    entry: './src/App',
 
     // and output it into /dist as bundle.js
     output: {
@@ -29,16 +29,32 @@ module.exports = {
                     loader: 'babel-loader'
                 },
             },
-
-            // css-loader to bundle all the css files into one file and style-loader to add all the styles  inside the style tag of the document
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
             },
             {
                 test: /\.less$/,
-                loader: 'less-loader', // compiles Less to CSS
+                use: [
+                    {
+                        loader: 'style-loader', // creates style nodes from JS strings
+                    },
+                    {
+                        loader: 'css-loader', // translates CSS into CommonJS
+                    },
+                    {
+                        loader: 'less-loader', // compiles Less to CSS
+                        options: {
+                            strictMath: true,
+                            noIeCompat: true,
+                        }
+                    }
+                ],
             },
+            {
+                test: /\.json$/,
+                loader: "json-loader"
+            }
         ]
     },
     plugins: [

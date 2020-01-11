@@ -1,13 +1,22 @@
 import * as React from 'react';
-import '../styles/index.css';
+import ProjectList from './ProjectList';
+import Credentials from './Credentials';
+import { Grid } from '@material-ui/core';
+import './Home.less';
 
 class Home extends React.Component {
+
   render() {
     return (
       <div className='Home'>
-        <h1>Jira projects manager</h1>
-
-        {this.props.children}
+        <Grid container  spacing={1}>
+          <Grid item xs className='credentials-container'>
+            <Credentials />
+          </Grid >
+          <Grid item xs={8} className='project-list-container'>
+            <ProjectList />
+          </Grid >
+        </Grid>
       </div>
     );
   }
