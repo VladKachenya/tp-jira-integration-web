@@ -41,7 +41,6 @@ class ProjectList extends React.Component<any, State> {
     }
 
     _onChange() {
-        console.log("_onChange");
         const state = this._getStateFromStores();
         this.setState(state);
     }
