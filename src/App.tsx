@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import AboutIcon from '@material-ui/icons/Info';
-
 import './styles/base.less';
 import './styles/App.less';
 import Home from './components/Home';
@@ -27,17 +26,9 @@ ReactDOM.render(
               <AboutIcon />
               <span>About</span>
             </Button>
-            {/* <Link className='menu-item-link' to="/about">About</Link> */}
           </div>
         </div>
       </nav>
-      {/* <BottomNavigation>
-
-        <Link className='menu-item-link' to="/">
-          <HomeIcon />  Home
-        </Link>
-
-        {/* <BottomNavigationAction label="About" value="favorites" icon={<AboutIcon />} /> */}
       <Route path="/about" component={About} />
       <Route exact path="/" component={Home} />
     </div>
