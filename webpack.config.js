@@ -13,7 +13,7 @@ module.exports = {
     mode: 'production',
     // and output it into /dist as bundle.js
     output: {
-        path: path.join(__dirname, '/public'),
+        path: path.join(__dirname, '/web/dist'),
         filename: 'bundle.js'
     },
 
@@ -54,10 +54,10 @@ module.exports = {
                 loader: "json-loader"
             }
         ]
-    }
-    // plugins: [
-    //     new HtmlWebpackPlugin({
-    //         template: './public/index.html'
-    //     })
-    // ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html'
+        })
+    ]
 };
