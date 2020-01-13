@@ -15,9 +15,6 @@ class ProjectList extends React.Component<any, State> {
     constructor(props: any) {
         super(props);
         this.state = this._getStateFromStores();
-    }
-
-    componentWillMount() {
         ProjectStore.addChangeListener(() => this._onChange());
     }
 
