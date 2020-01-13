@@ -2,7 +2,7 @@ import * as React from 'react';
 import "./Credentials.less";
 import { TextField, FormControl, Button, Grid } from '@material-ui/core';
 import loadProjectList from '../actions/ProjectsAction';
-import ICredentials from '../ViewModels/ICredentials';
+import ICredentials from '../dataModels/ICredentials';
 
 interface State {
     credentials: ICredentials;

@@ -1,7 +1,7 @@
 import { FluxStore } from "./FluxStore";
 import Flux from 'flux';
 
-import IProject from 'ViewModels/IProject';
+import IProject from 'dataModels/IProject';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 
@@ -12,10 +12,6 @@ class ProjectStore extends FluxStore<IProject[]> {
 
     getState(): IProject[] {
         return this._state
-    }
-
-    getError(): any {
-        return this._error;
     }
 
     _onDispatch(action: any) {
@@ -31,7 +27,6 @@ class ProjectStore extends FluxStore<IProject[]> {
                     }
                     return res;
                 });
-                this._error = null;
                 this.emitChange();
                 break;
             case AppConstants.PROJECTS_LOAD_FAIL:

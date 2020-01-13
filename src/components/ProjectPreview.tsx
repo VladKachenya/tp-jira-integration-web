@@ -2,7 +2,7 @@ import * as React from 'react';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import IProject from '../ViewModels/IProject';
+import IProject from '../dataModels/IProject';
 import ListItem from '@material-ui/core/ListItem';
 
 import './ProjectPreview.less';

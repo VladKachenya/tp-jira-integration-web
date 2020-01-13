@@ -10,7 +10,6 @@ export class FluxStore<TState> {
     _dispatcher: any;
     _cleanStateFn: () => TState;
     _state: TState;
-    _error: any;
 
     constructor(dispatcher: any, cleanStateFn: () => TState) {
         this._emitter = new EventEmitter();
@@ -44,7 +43,6 @@ export class FluxStore<TState> {
     _cleanState() {
         this._changed = false;
         this._state = this._cleanStateFn();
-        this._error = null;
     }
 
     _invokeOnDispatch(payload: any) {

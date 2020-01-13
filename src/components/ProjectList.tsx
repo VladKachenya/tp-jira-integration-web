@@ -1,14 +1,13 @@
 import * as React from 'react';
 import ProjectPreview from './ProjectPreview';
 import { List } from '@material-ui/core';
-import IProject from '../ViewModels/IProject';
+import IProject from '../dataModels/IProject';
 import ProjectStore from '../stores/ProjectStore';
 
 import './ProjectList.less';
 
 interface State {
     projects: IProject[];
-    error: any;
 }
 
 class ProjectList extends React.Component<any, State> {
@@ -44,8 +43,7 @@ class ProjectList extends React.Component<any, State> {
 
     _getStateFromStores(): State {
         const projects = ProjectStore.getState();
-        const error = ProjectStore.getError();
-        const state: State = { projects, error };
+        const state: State = { projects };
         return state;
     }
 }

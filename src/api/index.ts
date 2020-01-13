@@ -1,4 +1,4 @@
-import ICredentials from '../ViewModels/ICredentials';
+import ICredentials from '../dataModels/ICredentials';
 import axios from 'axios';
 import ApiConstants from '../constants/ApiConstants'
 

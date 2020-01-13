@@ -1,6 +1,6 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
-import ICredentials from '../ViewModels/ICredentials';
+import ICredentials from '../dataModels/ICredentials';
 
 import api from '../api';
 
@@ -12,10 +12,9 @@ export default (credentials: ICredentials) => {
                 items: response.data
             });
         })
-        .catch(err => {
-            console.log(err);
+        .catch( (err: Error) => {
             AppDispatcher.dispatch({
-                type: AppConstants.PROJECTS_LOAD_SUCCESS,
+                type: AppConstants.PROJECTS_LOAD_FAIL,
                 items: err
             });
         });
