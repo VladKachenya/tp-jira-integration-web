@@ -12,7 +12,7 @@ AVAILABLE ENDPOINTS
 # Getting Started
 - Clone the repository
 ```
-https://github.com/VladKachenya/tp-jira-integration-web.git {project_path}
+https://github.com/VladKachenya/tp-jira-integration-web.git
 ```
 
 - Install dependencies
