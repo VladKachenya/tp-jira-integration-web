@@ -37,6 +37,7 @@ npm run prod
 cd {project_path}
 npm run build
 cd {project_path}/web
+npm install
 npm start
 ```
 
